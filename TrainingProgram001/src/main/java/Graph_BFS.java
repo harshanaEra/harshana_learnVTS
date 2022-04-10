@@ -8,6 +8,7 @@ public class Graph_BFS {
 
     // Creating the graph
 
+
     Graph_BFS(int a) {
         A = a;
         adj = new LinkedList[a];
