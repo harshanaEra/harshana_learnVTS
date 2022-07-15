@@ -1,0 +1,129 @@
+import java.util.*;
+
+public class PrepInsta
+{
+  public static void main (String[]args) throws Exception
+  {
+    LinkedList ll = new LinkedList ();
+      ll.addFirst (10);
+      ll.addFirst (20);
+      ll.addFirst (30);
+      ll.addFirst (40);
+      ll.addFirst (40);
+      ll.addFirst (30);
+      ll.addFirst (20);
+      ll.addFirst (10);
+
+      ll.display ();
+
+      System.out.println (ll.isPalindrome ());
+  }
+
+}
+
+class LinkedList
+{
+  private class Node
+  {
+    int data;
+    Node next;
+//Node constructor
+    public Node (int data, Node next)
+    {
+      this.data = data;
+      this.next = next;
+    }
+  }
+  private Node head;
+  private Node tail;
+  private int size;
+//Linked list constructor
+  public LinkedList ()
+  {
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+  }
+//Find the size of linked list
+  public int size ()
+  {
+    return this.size;
+  }
+//Check whether linked list is empty or not
+  public boolean isEmpty ()
+  {
+    return this.size () == 0;
+  }
+//Traverse and print the linked list
+  public void display ()
+  {
+    Node temp = head;
+    while (temp != null)
+      {
+	System.out.print (temp.data + "  ");
+
+	temp = temp.next;
+      }
+    System.out.println ("END");
+  }
+//Add a node in beginning of linked list
+  public void addFirst (int item)
+  {
+//Create a temp node which points to head
+    Node temp = new Node (item, head);
+//If linked list is empty, temp is the head and tail node both
+    if (this.size == 0)
+      {
+	this.head = this.tail = temp;
+      }
+//If not set the head such that it now points to temp node
+    else
+      {
+	this.head = temp;
+      }
+    this.size++;
+  }
+  public boolean isPalindrome ()
+  {
+    HeapMover start = new HeapMover ();
+
+    start.node = this.head;
+
+    return this.isPalindrome (start, this.head, 0);
+  }
+
+//Check whether linked list is palindrome or not
+  private boolean isPalindrome (HeapMover start, Node end, int floor)
+  {
+    if (end == null)
+      {
+	return true;
+      }
+    boolean rv = this.isPalindrome (start, end.next, floor + 1);
+//If any recursive call results in false then return false
+    if (rv == false)
+      {
+	return false;
+      }
+//If floor is greater than 1/2 * size of linked list
+    if (floor >= this.size () / 2)
+      {
+//If data of start node and end node is not equal then it is not a palindrome
+	if (start.node.data != end.data)
+	  {
+	    return false;
+	  }
+	else
+	  {
+	    start.node = start.node.next;
+	    return true;
+	  }
+      }
+    return rv;
+  }
+//Keeping a node in the heap
+  private class HeapMover
+  {
+    Node node;
+  }
+}
