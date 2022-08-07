@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>Create Order</mat-card-title>
+  <mat-card-subtitle>Start your new order here !</mat-card-subtitle>
+  <mat-card-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Select Fuel Type</mat-label>
+      <mat-select [(ngModel)]="selectedFuelType" matNativeControl required [formControl]="selectFormControl">
+        <mat-option value="OCTANE92">Octane 92 Petrol</mat-option>
+        <mat-option value="OCTANE95">Octane 95 Petrol</mat-option>
+        <mat-option value="DIESEL">Diesel</mat-option>
+        <mat-option value="SUPER_DIESEL">Supper Diesel</mat-option>
+      </mat-select>
+      <mat-error *ngIf="selectFormControl.hasError('required')">
+        You need to select the fuel type
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Select Fuel Capacity</mat-label>
+      <mat-select [(ngModel)]="selectedFuelCapacity" matNativeControl required [formControl]="selectFormControl">
+        <mat-option value="CAPACITY_13200">13200</mat-option>
+        <mat-option value="CAPACITY_6600">6600</mat-option>
+        <mat-option value="CAPACITY_3300">3300</mat-option>
+      </mat-select>
+      <mat-error *ngIf="selectFormControl.hasError('required')">
+        You need to select the fuel capacity
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button mat-button color="primary" (click)="createOrder()">Create Order</button>
+  </mat-card-content>
+</mat-card>
+

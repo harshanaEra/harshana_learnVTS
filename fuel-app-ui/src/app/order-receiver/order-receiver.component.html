@@ -1,0 +1,53 @@
+<mat-card>
+  <mat-card-title>Order Receiver</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Reference ID:</mat-label>
+      <input matInput [(ngModel)]="referenceId">
+    </mat-form-field>
+    <button mat-raised-button mat-button color="primary" (click)="searchOrder()">Search</button>
+    <br><br>
+    <mat-form-field appearance="outline">
+      <mat-label>Capacity Type:</mat-label>
+      <input matInput [value]="'Required Capacity'"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.fuelCapacity">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Fuel Type:</mat-label>
+      <input matInput
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.fuelType">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Status:</mat-label>
+      <input matInput
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.status">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Date:</mat-label>
+      <input matInput
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.orderDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Allocation Date:</mat-label>
+      <input matInput
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.allocationDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Scheduled Date:</mat-label>
+      <input matInput
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.scheduleDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Dispatch Date:</mat-label>
+      <input matInput
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.dispatchDate">
+    </mat-form-field>
+    <button mat-raised-button mat-button color="primary"
+            *ngIf="!(orderDetail == undefined || orderDetail.status!='DISPATCHED')" (click)="acceptOrder()">Accept
+    </button>
+    <button mat-raised-button mat-button color="warn"
+            *ngIf="!(orderDetail == undefined || orderDetail.status!='DISPATCHED')" (click)="declineOrder()">Decline
+    </button>
+  </mat-card-content>
+</mat-card>
+

@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>Fuel Management System</h1>
+    <span class="menu-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened [disableClose]="true">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/add-order'"> New Order </a>
+      <a mat-list-item [routerLink]="'/order-status'"> Order Status </a>
+      <a mat-list-item [routerLink]="'/order-receiver'"> Order Receiver </a>
+      <a mat-list-item [routerLink]="'/order-details'"> Order Details </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

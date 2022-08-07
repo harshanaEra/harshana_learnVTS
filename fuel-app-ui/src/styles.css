@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-card {
+  margin: 20px;
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+mat-form-field1{
+  width: 100%;
+}
+.error-snackbar{
+  background: #a61832;
+  color: aliceblue;
+}
+
+.success-snackbar{
+  background: #18a634;
+  color: aliceblue;
+}
+
+mat-chip {
+  max-width: 130px;
+}

@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>Check Order Details</mat-card-title>
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 order-details-table">
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+        <th mat-header-cell *matHeaderCellDef>
+          {{column.header}}
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <span *ngIf="column.columnDef=='fuelType'">
+            <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
+              <mat-chip selected>{{column.cell(row)}}</mat-chip>
+            </mat-chip-list>
+          </span>
+          <span *ngIf="column.columnDef=='status'">
+            <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
+              <mat-chip selected color="accent">{{column.cell(row)}}</mat-chip>
+            </mat-chip-list>
+          </span>
+          <span *ngIf="column.columnDef!='fuelType' && column.columnDef!='status'">
+            {{column.cell(row)}}
+          </span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

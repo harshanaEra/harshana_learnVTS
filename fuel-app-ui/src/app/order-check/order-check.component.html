@@ -1,0 +1,47 @@
+<mat-card>
+  <mat-card-title>Check Order Status</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Reference ID:</mat-label>
+      <input matInput [(ngModel)]="referenceId">
+    </mat-form-field>
+    <button mat-raised-button mat-button color="primary" (click)="searchOrder()">Search</button>
+    <br><br>
+    <mat-form-field appearance="outline">
+      <mat-label>Capacity Type:</mat-label>
+      <input matInput [disabled]="true" [value]="'Required Capacity'"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.fuelCapacity">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Fuel Type:</mat-label>
+      <input matInput [disabled]="true"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.fuelType">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Status:</mat-label>
+      <input matInput [disabled]="true"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.status">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Date:</mat-label>
+      <input matInput [disabled]="true"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.orderDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Allocation Date:</mat-label>
+      <input matInput [disabled]="true"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.allocationDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Scheduled Date:</mat-label>
+      <input matInput [disabled]="true"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.scheduleDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Order Dispatch Date:</mat-label>
+      <input matInput [disabled]="true"
+             [(ngModel)]="orderDetail == undefined ? '' : orderDetail.dispatchDate">
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+
