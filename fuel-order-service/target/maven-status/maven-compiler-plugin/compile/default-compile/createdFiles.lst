@@ -1,0 +1,8 @@
+com\fuelorderservice\common\FuelCapacity.class
+com\fuelorderservice\doc\OrderRequest.class
+com\fuelorderservice\service\OrderService.class
+com\fuelorderservice\common\ApiConstants.class
+com\fuelorderservice\service\OrderServiceImpl.class
+com\fuelorderservice\Application.class
+com\fuelorderservice\controller\OrderController.class
+com\fuelorderservice\common\FuelType.class
